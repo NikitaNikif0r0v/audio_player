@@ -80,19 +80,15 @@ const AudioPlayer = () => {
     return (
         <div className={`player ${isPlaying ? 'player__active' : ''} ${firstLoad ? 'player__is-loaded' : ''}`}>
             <audio ref={audioRef} src={playlist[currentTrack].audio} />
-
             <PlayerControl isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentTrack={currentTrack} setCurrentTrack={setCurrentTrack} playlist={playlist} setIsPaused={setIsPaused} isPaused={isPaused} firstLoad={firstLoad} />
-
             <div className="player__container">
                 <VolumeControl volume={volume} setVolume={setVolume} />
                 <div className='player__song-title'>{playlist[currentTrack].title}</div>
                 <ProgressControl progress={progress} setProgress={setProgress} setIsPlaying={setIsPlaying} isPlaying={isPlaying} isPaused={isPaused} firstLoad={firstLoad} />
             </div>
-
             <div className={`player__cover ${isPlaying ? 'player__cover__play' : ''}`}>
                 <img src={playlist[currentTrack].cover} alt="Cover" />
             </div>
-
         </div>
     );
 };
